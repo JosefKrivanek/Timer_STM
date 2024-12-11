@@ -1,47 +1,62 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "STM8-gdb",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceRoot}/build/out.elf",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceRoot}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "stm8-gdb",
+      "setupCommands": [
         {
-            "name": "STM8-gdb",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceRoot}/build/out.elf",
-            "args": [],
-            "stopAtEntry": true,
-            "cwd": "${workspaceRoot}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "stm8-gdb",
-            "setupCommands": [
-                {
-                    "description": "connect to target",
-                    "text": "-target-select extended-remote localhost:3333",
-                    "ignoreFailures": true
-                },
-            ],
-            "logging": {
-                "moduleLoad": true,
-                "trace": true,
-                "engineLogging": true,
-                "programOutput": true,
-                "exceptions": true
-            },
-        },
-        {
-            "type": "stm8-debug",
-            "request": "launch",
-            "name": "stm8-debug",
-            "serverType": "stm8-sdcc",
-            "executable": "/home/marek/Programming/STM8/00-vzor_No-SDCC/build-STM8S208/out.elf",
-            "openOcdConfigs": [
-                "interface/stlink-dap.cfg",
-                "target/stm8s.cfg"
-            ]
+          "description": "connect to target",
+          "text": "-target-select extended-remote localhost:3333",
+          "ignoreFailures": true
         }
-    ]
+      ],
+      "logging": {
+        "moduleLoad": true,
+        "trace": true,
+        "engineLogging": true,
+        "programOutput": true,
+        "exceptions": true
+      }
+    },
+    {
+      "type": "stm8-debug",
+      "request": "launch",
+      "name": "stm8-debug",
+      "serverType": "stm8-sdcc",
+      "executable": "/home/marek/Programming/STM8/00-vzor_No-SDCC/build-STM8S208/out.elf",
+      "openOcdConfigs": [
+        "interface/stlink-dap.cfg",
+        "target/stm8s.cfg"
+      ]
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/42077/Desktop/ŠKOLA/C/TIM2/src",
+      "program": "c:/Users/42077/Desktop/ŠKOLA/C/TIM2/src/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
 }
